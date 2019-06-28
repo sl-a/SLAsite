@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import Contact from './ContactForm.jsx';
 
-export default class ContactForm extends Component {
+export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -11,7 +12,8 @@ export default class ContactForm extends Component {
     render () {
         return (
             <div>
-                hello from contact form
+                hello from app
+                <Contact />
             </div>
         )
     }

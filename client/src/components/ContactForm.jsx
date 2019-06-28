@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ContactInput from './ContactInput.jsx';
+import axios from 'axios';
 
 export default class ContactForm extends Component {
     constructor(props) {
@@ -9,11 +10,14 @@ export default class ContactForm extends Component {
             name: '',
             email: '',
             subject: '',
-            text: '',
-            allowContact: true
+            message: '',
+            allowContact: true,
+            sent: false,
+            failed: false
         }
         this.handleChange = this.handleChange.bind(this);
         this.toggleCheck = this.toggleCheck.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange (e) {
@@ -29,6 +33,17 @@ export default class ContactForm extends Component {
         }, () => console.log(this.state.allowContact))
     }
 
+    handleSubmit () {
+        let { name, email, subject, message, allowContact } = this.state
+        axios
+            .post('/api/contact', { name, email, subject, message, allowContact })
+            .then(() => 
+                this.setState({
+                    sent: true
+                }))
+            .catch(err => console.error(err))
+    }
+
     render () {
         return (
             <div>
@@ -37,6 +52,9 @@ export default class ContactForm extends Component {
                     return (<ContactInput key={index} field={item} handleChange={this.handleChange} />)
                 })}
                 <input type='checkbox' onClick={this.toggleCheck}></input> Do not add me to SL+A's mailing list
+                <br/>
+                <button onClick={this.handleSubmit}>Send Email</button>
+                {this.state.sent ? <div>Email sent</div> : null}
             </div>
         )
     }

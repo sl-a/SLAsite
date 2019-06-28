@@ -5,9 +5,10 @@ export default class ContactForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            fields: ['Name', 'Email', 'Message'],
+            fields: ['Name', 'Email', 'Subject', 'Message'],
             name: '',
             email: '',
+            subject: '',
             text: '',
             allowContact: true
         }
@@ -31,6 +32,7 @@ export default class ContactForm extends Component {
     render () {
         return (
             <div>
+                Contact us:
                 {this.state.fields.map((item, index) => {
                     return (<ContactInput key={index} field={item} handleChange={this.handleChange} />)
                 })}

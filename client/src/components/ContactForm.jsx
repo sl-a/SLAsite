@@ -20,6 +20,7 @@ export default class ContactForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    //updates state to track information typed in input fields
     handleChange (e) {
         let property = e.target.id;
         this.setState({
@@ -27,12 +28,14 @@ export default class ContactForm extends Component {
         })
     }
 
+    //updates state about whether the user wishes to allow contact
     toggleCheck () {
         this.setState(currState => {
             return {allowContact: !currState.allowContact}
-        }, () => console.log(this.state.allowContact))
+        })
     }
 
+    //sends request to server to send email
     handleSubmit () {
         let { name, email, subject, message, allowContact } = this.state
         axios

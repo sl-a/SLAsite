@@ -1,13 +1,19 @@
 const faker = require('faker');
 const fs = require('fs');
-const file = fs.createWriteStream("./seeds/contactSeed.csv");
+const contact = fs.createWriteStream("./seeds/contactSeed.csv");
+const candidate = fs.createWriteStream("./seeds/candidateSeed.csv");
 
-const generateOneEntry = (id) => {
+const generateOneContact = (id) => {
     let entry = `${id}|${faker.name.findName()}|${faker.internet.email()}|${!Math.round(Math.random())}`
     return entry
 }
 
-function streamFunc(max, writer, data, encoding, callback) {
+const generateOneCandidate = (id) => {
+  let entry = `${id}|${faker.name.findName()}|${faker.date.future()}|${faker.image.people()}|${faker.lorem.paragraph()}`;
+  return entry;
+}
+
+function streamFunc(max, writer, callback, headerline) {
     let x = max;
     write();
   
@@ -20,20 +26,20 @@ function streamFunc(max, writer, data, encoding, callback) {
         if (x === max) {
           x--;
           writer.write(
-            "id|name|email|allowContact\n"
+            headerline
           );
         } else {
             x--
         }
         if (x === 0) {
           // last time!
-          var str = generateOneEntry(max - x)
-          writer.write(str, encoding, callback);
+          var str = callback(max - x)
+          writer.write(str);
         } else {
           // See if we should continue, or wait.
           // Don't pass the callback, because we're not done yet.
-          var str = generateOneEntry(max - x) + "\n";
-          ok = writer.write(str, encoding);
+          var str = callback(max - x) + "\n";
+          ok = writer.write(str);
         }
       } while (x > 0 && ok);
       if (x > 0) {
@@ -44,5 +50,9 @@ function streamFunc(max, writer, data, encoding, callback) {
     }
   }
   
-streamFunc(1e4, file);
-// console.log(generateOneEntry(1))
+let contactHeader = "id|name|email|allowContact\n";
+let candidateHeader = 'id|name|electionDate|pictureURL|blurb';
+
+streamFunc(1e4, contact, generateOneContact, contactHeader);
+streamFunc(20, candidate, generateOneCandidate, candidateHeader);
+// console.log(generateOneCandidate(5))

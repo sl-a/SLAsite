@@ -4,7 +4,7 @@ const contact = fs.createWriteStream("./seeds/contactSeed.csv");
 const candidate = fs.createWriteStream("./seeds/candidateSeed.csv");
 
 const generateOneContact = (id) => {
-    let entry = `${id}|${faker.name.findName()}|${faker.internet.email()}|${!Math.round(Math.random())}`
+    let entry = `${id}|${faker.name.findName()}|${faker.internet.email()}`
     return entry
 }
 
@@ -50,8 +50,8 @@ function streamFunc(max, writer, callback, headerline) {
     }
   }
   
-let contactHeader = "id|name|email|allowContact\n";
-let candidateHeader = 'id|name|electionDate|pictureURL|blurb';
+let contactHeader = "id|name|email\n";
+let candidateHeader = 'id|name|electionDate|pictureURL|blurb\n';
 
 streamFunc(1e4, contact, generateOneContact, contactHeader);
 streamFunc(20, candidate, generateOneCandidate, candidateHeader);

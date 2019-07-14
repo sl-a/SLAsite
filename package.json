@@ -3,7 +3,8 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "build": "webpack -d --watch",
-    "seed": "node database/seed.js"
+    "seed": "node database/seed.js",
+    "schema": "node database/models.js"
   },
   "dependencies": {
     "axios": "^0.18.0",

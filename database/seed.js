@@ -51,7 +51,7 @@ function streamFunc(max, writer, callback, headerline) {
   }
   
 let contactHeader = "id|name|email\n";
-let candidateHeader = 'id|name|electionDate|pictureURL|blurb\n';
+let candidateHeader = 'id|name|electionDate|adURL|blurb\n';
 
 streamFunc(100, contact, generateOneContact, contactHeader);
 streamFunc(20, candidate, generateOneCandidate, candidateHeader);

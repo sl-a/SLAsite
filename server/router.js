@@ -4,6 +4,10 @@ const router = express.Router();
 
 router
     .route('/contact')
-    .post(controller.post)
+    .post(controller.postEmail)
+
+router
+    .route('/candidate')
+    .get(controller.getCandidate)
 
 module.exports = router

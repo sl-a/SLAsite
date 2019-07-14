@@ -9,8 +9,7 @@ const generateOneContact = (id) => {
 }
 
 const generateOneCandidate = (id, year) => {
-  let randomDate = (Math.floor(Math.random() * 11) + 1) + '-' + (Math.floor(Math.random() * 27) + 1) + '-' + (Math.floor(Math.random() * 20) + 10);
-  let entry = `${id}|${faker.name.findName()}|${randomDate}|${faker.image.people()}|${faker.lorem.paragraph()}`;
+  let entry = `${id}|${faker.name.findName()}|${faker.date.future()}|${faker.image.people()}|${faker.lorem.paragraph()}`;
   return entry;
 }
 

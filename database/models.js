@@ -15,11 +15,11 @@ db
         'CREATE TABLE IF NOT EXISTS candidates(\
             id serial PRIMARY KEY,\
             name VARCHAR (50),\
-            electionDate VARCHAR (10),\
+            electionDate VARCHAR (75),\
             pictureURL VARCHAR (50),\
             blurb VARCHAR (1000))')
     .then(res => {
         console.log('CANDIDATE TABLE CREATED');
         db.end();
     })
-    .catch(err => console.log('There was an error: ' +err))
+    .catch(err => console.log('There was an error: ' + err))

@@ -11,8 +11,10 @@ const transporter = nodemailer.createTransport({
   });
 
 module.exports = {
-    post: (req, res) => {
+  //sends email to contact email and saves email information of those who agree
+    postEmail: (req, res) => {
       let { name, subject, message, email, allowContact } = req.body;
+      //formats and sends emails
       transporter.sendMail({
           from: 'SLAmailerbot@gmail.com',
           to: 'adam_reback@yahoo.com',
@@ -25,6 +27,7 @@ module.exports = {
       },
       (err, info) => {
         if (allowContact === true) {
+          //saves email information from willing users
           db
             .query('INSERT INTO emails (name, email) VALUES ($1, $2)', [name, email])
         }
@@ -34,5 +37,14 @@ module.exports = {
           res.status(201).send('Emails sent')
         }
       })
+    },
+    getCandidate: (req, res) => {
+      db
+        .query(
+          'SELECT * FROM candidates\
+          ORDER BY electionDate DESC\
+          LIMIT 1')
+        .then(data => res.status(200).send(data))
+        .catch(err => res.status(404).send(err))
     }
 }

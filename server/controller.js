@@ -1,6 +1,6 @@
-//TODO require database
 const nodemailer = require('nodemailer');
 const pass = require('../config.js').emailPass;
+const db = require('../database/index.js');
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -24,6 +24,10 @@ module.exports = {
             `
       },
       (err, info) => {
+        if (allowContact === true) {
+          db
+            .query('INSERT INTO emails (name, email) VALUES ($1, $2)', [name, email])
+        }
         if (err) {
           res.status(404).send(err);
         } else {

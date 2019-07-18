@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Contact from './ContactForm.jsx';
 import CurrentCandidate from './CurrentCandidate.jsx';
 import Services from './Services.jsx';
+import Team from './Team.jsx';
 import axios from 'axios';
 
 export default class App extends Component {
@@ -41,6 +42,7 @@ export default class App extends Component {
                     video={this.state.adURL}
                     />
                 <Services />
+                <Team />
                 <Contact />
             </div>
         )

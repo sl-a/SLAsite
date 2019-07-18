@@ -8,6 +8,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.team {
+    height: 45vh;
+}
+
 #logo {
     width: 100vh;
     height: 100vh;

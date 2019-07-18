@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Contact from './ContactForm.jsx';
 import CurrentCandidate from './CurrentCandidate.jsx';
+import Services from './Services.jsx';
 import axios from 'axios';
 
 export default class App extends Component {
@@ -19,7 +20,6 @@ export default class App extends Component {
             .get('/api/candidate')
             .then(data => {
                 let info = data.data.rows[0];
-                // console.log(info)
                 this.setState({
                     candidateName: info.name,
                     electionDate: info.electiondate,
@@ -33,8 +33,14 @@ export default class App extends Component {
     render () {
         return (
             <div>
-                hello from app
-                <CurrentCandidate />
+                {/* <img src='https://calvinpics.s3-us-west-1.amazonaws.com/slalogo.png' id='logo'></img> */}
+                <CurrentCandidate
+                    name={this.state.candidateName}
+                    date={this.state.electionDate}
+                    blurb={this.state.candidateBlurb}
+                    video={this.state.adURL}
+                    />
+                <Services />
                 <Contact />
             </div>
         )

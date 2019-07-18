@@ -4,22 +4,19 @@ export default class CurrentCandidate extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
         }
     }
-
-    
 
     render () {
         return (
             <div>
-                picture
+                <iframe width="560" height="315" src={this.props.video} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 <br/>
-                name
+                {this.props.name}
                 <br/>
-                election date
+                {this.props.blurb}
                 <br/>
-                blurb
+                Be sure to vote for {this.props.name} on {this.props.date.slice(0,15)}.
             </div>
         )
     }

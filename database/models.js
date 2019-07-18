@@ -16,7 +16,7 @@ db
             id serial PRIMARY KEY,\
             name VARCHAR (50),\
             electionDate VARCHAR (75),\
-            pictureURL VARCHAR (50),\
+            adURL VARCHAR (50),\
             blurb VARCHAR (1000))')
     .then(res => {
         console.log('CANDIDATE TABLE CREATED');

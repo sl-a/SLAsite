@@ -2,7 +2,7 @@ import React from 'react';
 
 const Services = (props) => {
     return (
-        <div>
+        <div className='invertedColor'>
             Our Professional Services
             <div id='servicesGrid'>
                 <div>Direct Mail</div>

@@ -34,7 +34,10 @@ export default class App extends Component {
     render () {
         return (
             <div>
-                {/* <img src='https://calvinpics.s3-us-west-1.amazonaws.com/slalogo.png' id='logo'></img> */}
+                <div id='header'>
+                    <img src='https://calvinpics.s3-us-west-1.amazonaws.com/slalogo.png' id='logo'></img>
+                </div>
+                {/* sticky navbar */}
                 <CurrentCandidate
                     name={this.state.candidateName}
                     date={this.state.electionDate}

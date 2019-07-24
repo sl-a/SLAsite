@@ -9,7 +9,7 @@ export default class CurrentCandidate extends Component {
 
     render () {
         return (
-            <div>
+            <div className='invertedColor'>
                 <iframe width="560" height="315" src={this.props.video} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 <br/>
                 {this.props.name}

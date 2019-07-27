@@ -10,7 +10,9 @@ app.use(parser.urlencoded({ extended: true }));
 app.use(parser.json());
 app.use(morgan('dev'));
 
-app.use(express.static(path.join(__dirname, '../client/dist')))
+app.use('/', express.static(path.join(__dirname, '../client/homePage/dist')));
+
+app.use('/admin', express.static(path.join(__dirname, '../client/adminPage/dist')));
 
 app.use('/api', router);
 

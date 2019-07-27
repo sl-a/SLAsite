@@ -46,5 +46,8 @@ module.exports = {
           LIMIT 1')
         .then(data => res.status(200).send(data))
         .catch(err => res.status(404).send(err))
+    },
+    getEmails: (req, res) => {
+      res.status(200).send('connected')
     }
 }

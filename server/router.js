@@ -10,4 +10,8 @@ router
     .route('/candidate')
     .get(controller.getCandidate)
 
+router
+    .route('/emails')
+    .get(controller.getEmails)
+
 module.exports = router

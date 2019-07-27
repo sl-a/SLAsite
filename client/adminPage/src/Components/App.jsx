@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FetchEmails from './FetchEmails.jsx';
 
 export default class App extends Component {
     constructor(props) {
@@ -11,7 +12,8 @@ export default class App extends Component {
     render () {
         return (
             <div>
-                hello from admin
+                add candidate
+                <FetchEmails />
             </div>
         )
     }

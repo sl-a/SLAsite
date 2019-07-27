@@ -48,6 +48,11 @@ module.exports = {
         .catch(err => res.status(404).send(err))
     },
     getEmails: (req, res) => {
-      res.status(200).send('connected')
+      db
+        .query(
+          'SELECT name, email FROM emails'
+        ).then (data => {
+          res.send(data.rows)
+        })
     }
 }

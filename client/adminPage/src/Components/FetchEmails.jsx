@@ -10,10 +10,6 @@ export default class FetchEmails extends Component {
         this.getEmails = this.getEmails.bind(this);
     }
 
-    componentDidMount () {
-        this.getEmails()
-    }
-
     getEmails () {
         axios
             .get('/api/emails')
@@ -29,6 +25,7 @@ export default class FetchEmails extends Component {
         return (
             <div>
                 hello from emails
+                <button onClick={this.getEmails}>Retrieve email information</button>
             </div>
         )
     }

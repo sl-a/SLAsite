@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import EmailList from './EmailList.jsx';
 
 export default class FetchEmails extends Component {
     constructor(props) {
@@ -16,7 +17,7 @@ export default class FetchEmails extends Component {
             .then(data => {
                 this.setState({
                     addresses: data.data
-                }, () => console.log(this.state.addresses))
+                })
             })
             .catch(err => console.error(err));
     }
@@ -26,6 +27,7 @@ export default class FetchEmails extends Component {
             <div>
                 hello from emails
                 <button onClick={this.getEmails}>Retrieve email information</button>
+                {this.state.addresses.length ? <EmailList emailData={this.state.addresses} /> : null}
             </div>
         )
     }

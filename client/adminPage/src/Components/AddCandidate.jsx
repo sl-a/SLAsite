@@ -58,7 +58,12 @@ export default class AddCandidate extends Component {
                 adURL        : this.state.adURL,
                 blurb        : this.state.blurb
             })
-            .then(data => console.log(data))
+            .then(data => {
+                window.alert('New candidate added to database');
+            })
+            .catch(data => {
+                window.alert('There was an error adding the new candidate.  Please try again.  If errors persist, contact the site administrator.')
+            })
     }
 
     render () {

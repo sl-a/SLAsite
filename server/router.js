@@ -9,6 +9,7 @@ router
 router
     .route('/candidate')
     .get(controller.getCandidate)
+    .post(controller.postCandidate)
 
 router
     .route('/emails')

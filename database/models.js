@@ -13,7 +13,7 @@ db
 db
     .query(
         'CREATE TABLE IF NOT EXISTS candidates(\
-            id serial PRIMARY KEY,\
+            id SERIAL PRIMARY KEY,\
             name VARCHAR (50),\
             electionDate VARCHAR (75),\
             adURL VARCHAR (50),\

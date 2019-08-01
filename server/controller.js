@@ -54,5 +54,20 @@ module.exports = {
         ).then (data => {
           res.send(data.rows)
         })
+    },
+    postCandidate: (req, res) => {
+      let { name, adURL, blurb, electionDate } = req.body;
+      db
+        .query(
+          `INSERT INTO candidates (name, electionDate, adURL, blurb)\
+          VALUES\
+          ('${name}', '${electionDate}', '${adURL}', '${blurb}')`
+        )
+        .then(data => {
+          res.status(201).send('Candidate added');
+        })
+        .catch(err => {
+          res.status(404).send(err)
+        })
     }
 }

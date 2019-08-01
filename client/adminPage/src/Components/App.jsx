@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddCandidate from './AddCandidate.jsx';
 import FetchEmails from './FetchEmails.jsx';
 
 export default class App extends Component {
@@ -12,7 +13,7 @@ export default class App extends Component {
     render () {
         return (
             <div>
-                add candidate
+                <AddCandidate />
                 <FetchEmails />
             </div>
         )

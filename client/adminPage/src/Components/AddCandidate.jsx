@@ -33,6 +33,7 @@ export default class AddCandidate extends Component {
     }
 
     handleAdd(e) {
+        //TODO add confirmation alert
         e.preventDefault()
         if (this.state.name === '') {
             window.alert('You need to add the candidate\'s name');
@@ -71,11 +72,13 @@ export default class AddCandidate extends Component {
             <div>
                 Add Candidate Information
                 <form>
-                    Name: <input type='text' onChange={this.handleInput} id='candidateName' ></input>
+                    Name: <input type='text' onChange={this.handleInput} id='candidateName' maxLength='50'></input>
                     <br />
-                    Blurb: <input type='text' onChange={this.handleInput} id='blurb' ></input>
+                    Blurb: <input type='text' onChange={this.handleInput} id='blurb' maxLength='1000'></input>
                     <br />
-                    Advertisement URL: <input type='text' onChange={this.handleInput} id='adURL' ></input>
+                    {1000 - this.state.blurb.length} characters remaining
+                    <br />
+                    Advertisement URL: <input type='text' onChange={this.handleInput} id='adURL' maxLength='50'></input>
                     <br />
                     Election Date: 
                     <DatePicker

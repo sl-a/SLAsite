@@ -25,7 +25,6 @@ export default class FetchEmails extends Component {
     render () {
         return (
             <div>
-                hello from emails
                 <button onClick={this.getEmails}>Retrieve email information</button>
                 {this.state.addresses.length ? <EmailList emailData={this.state.addresses} /> : null}
             </div>

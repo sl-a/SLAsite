@@ -15,4 +15,8 @@ router
     .route('/emails')
     .get(controller.getEmails)
 
+router
+    .route('/admin/login')
+    .post(controller.adminLogin)
+
 module.exports = router

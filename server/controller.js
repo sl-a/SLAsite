@@ -1,12 +1,12 @@
 const nodemailer = require('nodemailer');
-const pass = require('../config.js').emailPass;
+const { emailPass, adminPass } = require('../config.js');
 const db = require('../database/index.js');
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: 'SLAmailerbot@gmail.com',
-      pass: pass
+      pass: emailPass
     }
   });
 
@@ -63,11 +63,18 @@ module.exports = {
           VALUES\
           ('${name}', '${electionDate}', '${adURL}', '${blurb}')`
         )
-        .then(data => {
+        .then(() => {
           res.status(201).send('Candidate added');
         })
         .catch(err => {
           res.status(404).send(err)
         })
+    },
+    adminLogin: (req, res) => {
+      if (req.body.password === adminPass) {
+        res.status(201).end();
+      } else {
+        res.status(404).end();
+      }
     }
 }

@@ -1,5 +1,5 @@
 .DS_Store
 node_modules
 seeds
-config.js
+configInfo.json
 bundle.js

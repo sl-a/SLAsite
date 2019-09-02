@@ -17,8 +17,6 @@ export default class AddCandidate extends Component {
         this.handleInput = this.handleInput.bind(this);
     }
 
-    //TODO set max input length and display remaining characters
-
     handleChange(date) {
         this.setState({
           electionDate: date

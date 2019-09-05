@@ -39,11 +39,14 @@ module.exports = {
       })
     },
     getCandidate: (req, res) => {
+      let date = new Date;
+      date = date.toISOString().split('T')[0],
       db
         .query(
-          'SELECT * FROM candidates\
+          `SELECT * FROM candidates\
+          WHERE electionDate > '${date}'\
           ORDER BY electionDate DESC\
-          LIMIT 1')
+          LIMIT 1`)
         .then(data => res.status(200).send(data))
         .catch(err => res.status(404).send(err))
     },

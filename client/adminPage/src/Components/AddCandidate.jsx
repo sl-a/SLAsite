@@ -53,7 +53,7 @@ export default class AddCandidate extends Component {
         axios
             .post('/api/candidate', {
                 name         : this.state.candidateName,
-                electionDate : this.state.electionDate,
+                electionDate : this.state.electionDate.toISOString().split('T')[0],
                 adURL        : this.state.adURL,
                 blurb        : this.state.blurb
             })

@@ -15,7 +15,7 @@ db
         'CREATE TABLE IF NOT EXISTS candidates(\
             id SERIAL PRIMARY KEY,\
             name VARCHAR (50),\
-            electionDate VARCHAR (75),\
+            electionDate date,\
             adURL VARCHAR (50),\
             blurb VARCHAR (1000))')
     .then(res => {

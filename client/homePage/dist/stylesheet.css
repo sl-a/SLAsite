@@ -2,25 +2,45 @@ body {
     padding: 0;
     margin: 0;
     border: 0;
-    background-color: #000000;
-    color: white;
+    background-color: white;
+    color: black;
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
+}
+
+input {
+    border: 0px;
+    outline: 0;
+    border-bottom: solid gray 1px
+}
+
+.blkBG {
+    background-color: black
+}
+
+.centered {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .team {
     height: 45vh;
 }
 
-/* .invertedColor {
-    background-color: gray;
-    color: black
-} */
+.fullwidth {
+    width: 100vw;
+    border: 0;
+    margin: 0;
+    padding: 0
+}
 
 #header {
     display: flex;
     flex-direction: row;
-    justify-content: center
+    justify-content: center;
+    margin-bottom: 5vh;
+    border-bottom: solid gray 2px
 }
 
 #logo {

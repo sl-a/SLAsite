@@ -34,7 +34,7 @@ export default class App extends Component {
     render () {
         return (
             <div>
-                <div id='header'>
+                <div id='header' className='blkBG'>
                     <img src='https://calvinpics.s3-us-west-1.amazonaws.com/slalogo.png' id='logo'></img>
                 </div>
                 {/* sticky navbar */}

@@ -1,7 +1,7 @@
 const express = require('express');
 const parser = require('body-parser');
 const morgan = require('morgan');
-//TODO rate limiter
+const { apiLimit, adminLimit } = require('./rateLimiterOptions');
 const path = require('path');
 const router = require('./router.js');
 const port = 4001;
@@ -12,6 +12,9 @@ app.use(parser.json());
 app.use(morgan('dev'));
 
 app.use('/', express.static(path.join(__dirname, '../client/homePage/dist')));
+
+app.use('/api', apiLimit);
+app.use('/admin', adminLimit);
 
 app.use('/admin', express.static(path.join(__dirname, '../client/adminPage/dist')));
 

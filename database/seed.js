@@ -9,7 +9,7 @@ const generateOneContact = (id) => {
 }
 
 const generateOneCandidate = (id, year) => {
-  let entry = `${id}|${faker.name.findName()}|${faker.date.future().toISOString().split('T')[0]}|${faker.image.people()}|${faker.lorem.paragraph()}`;
+  let entry = `${id}|${faker.name.findName()}|${faker.date.future().toISOString().split('T')[0]}|https://www.youtube.com/embed/v=wPqTCrm61-I|${faker.lorem.paragraph()}`;
   return entry;
 }
 

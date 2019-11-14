@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import ContactInput from './ContactInput.jsx';
 import axios from 'axios';
+import Checkbox from '@material-ui/core/Checkbox';
+import Button from '@material-ui/core/Button';
+import emailChecker from 'email-validator';
 
 export default class ContactForm extends Component {
     constructor(props) {
@@ -38,6 +41,22 @@ export default class ContactForm extends Component {
     //sends request to server to send email
     handleSubmit () {
         let { name, email, subject, message, allowContact } = this.state
+        if (!name) {
+            window.alert('Please enter your name');
+            return;
+        }
+        if (!subject) {
+            window.alert('Please enter a subject');
+            return;
+        }
+        if (!message) {
+            window.alert('Please enter a message');
+            return;
+        }
+        if (!emailChecker.validate(email)) {
+            window.alert('Please enter a valid email');
+            return;
+        }
         axios
             .post('/api/contact', { name, email, subject, message, allowContact })
             .then(() => 
@@ -49,14 +68,18 @@ export default class ContactForm extends Component {
 
     render () {
         return (
-            <div>
+            <div id='contactForm'>
+                <div className='contactSpacer'></div>
+                <div className='contactSpacer'></div>
                 Contact us:
                 {this.state.fields.map((item, index) => {
                     return (<ContactInput key={index} field={item} handleChange={this.handleChange} />)
                 })}
-                <input type='checkbox' onClick={this.toggleCheck}></input> Do not add me to SL+A's mailing list
+                <div className='contactSpacer'></div>
+                <Checkbox color='default' checked={this.state.allowContact} onClick={this.toggleCheck}></Checkbox> Do not add me to SL+A's mailing list
                 <br/>
-                <button onClick={this.handleSubmit}>Send Email</button>
+                <div className='contactSpacer'></div>
+                <Button variant='contained' onClick={this.handleSubmit}>Send Email</Button>
                 {this.state.sent ? <div>Email sent</div> : null}
             </div>
         )

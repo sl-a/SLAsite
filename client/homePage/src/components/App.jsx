@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AboutUs from './AboutUs.jsx';
 import Contact from './ContactForm.jsx';
 import CurrentCandidate from './CurrentCandidate.jsx';
 import Services from './Services.jsx';
@@ -34,10 +35,11 @@ export default class App extends Component {
     render () {
         return (
             <div>
-                <div id='header' className='blkBG'>
+                <div id='header' className='blkBG' className='fade'>
                     <img src='https://calvinpics.s3-us-west-1.amazonaws.com/slalogo.png' id='logo'></img>
                 </div>
                 {/* sticky navbar */}
+                <AboutUs />
                 <CurrentCandidate
                     name={this.state.candidateName}
                     date={this.state.electionDate}

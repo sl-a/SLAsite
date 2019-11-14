@@ -1,9 +1,10 @@
 import React from 'react';
+import TextField from '@material-ui/core/TextField';
 
 const ContactInput = (props) => {
     return (
         <div>
-            <input type='text' placeholder={props.field} onChange={props.handleChange} id={props.field.toLowerCase()}></input>
+            <TextField label={props.field} onChange={props.handleChange} id={props.field.toLowerCase()}></TextField>
             <br/>
         </div>
     )

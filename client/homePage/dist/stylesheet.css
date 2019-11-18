@@ -10,7 +10,7 @@ body {
 
 iframe {
     height: 75vh;
-    width: 75vw
+    width: 70vw
 }
 
 .blkBG {
@@ -50,7 +50,8 @@ iframe {
 
 #logo {
     width: 100vh;
-    height: 100vh
+    height: 100vh;
+    animation: fadein 4s;
 }
 
 #contactForm {
@@ -81,4 +82,21 @@ iframe {
 #team {
     background-color: black;
     box-shadow: 0 150px 400px rgba(0,0,0,.2);
+}
+
+#carouselWrapper {
+    padding-bottom: 10vh;
+    padding-top: 5vh;
+    justify-self: center;
+    justify-content: center;
+    padding-left: 12.5vw
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

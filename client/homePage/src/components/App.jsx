@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import AboutUs from './AboutUs.jsx';
-import Contact from './ContactForm.jsx';
-import CurrentCandidate from './CurrentCandidate.jsx';
-import Services from './Services.jsx';
-import Team from './Team.jsx';
-import axios from 'axios';
+import Contact              from './ContactForm.jsx';
+import CurrentCandidate     from './CurrentCandidate.jsx';
+import Services             from './Services.jsx';
+import CaseWork             from './CaseWork.jsx';
+import Team                 from './Team.jsx';
+import axios                from 'axios';
 
 export default class App extends Component {
     constructor(props) {
@@ -39,13 +39,13 @@ export default class App extends Component {
                     <img src='https://calvinpics.s3-us-west-1.amazonaws.com/slalogo.png' id='logo'></img>
                 </div>
                 {/* sticky navbar */}
-                <AboutUs />
                 <CurrentCandidate
                     name={this.state.candidateName}
                     date={this.state.electionDate}
                     blurb={this.state.candidateBlurb}
                     video={this.state.adURL}
                     />
+                <CaseWork />
                 <Services />
                 <Team />
                 <Contact />

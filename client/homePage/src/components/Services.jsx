@@ -1,8 +1,7 @@
-import React from 'react';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import React          from 'react';
+import Paper          from '@material-ui/core/Paper';
+import Grid           from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import { mergeClasses } from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -28,7 +27,7 @@ const Services = (props) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <div className='contactSpacer'></div>
+            {/* <div className='contactSpacer'></div> */}
 
             <Grid container spacing={3} className={classes.grid}>
                 <Grid item xs={8}>
